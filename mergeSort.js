@@ -1,4 +1,4 @@
-export default function mergeSort(array){
+export function mergeSort(array){
     if (array.length === 1) {
         return array;
     } else {
