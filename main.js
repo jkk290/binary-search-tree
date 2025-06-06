@@ -12,3 +12,7 @@ prettyPrint(rootNode);
 myTree.insert(66);
 
 prettyPrint(rootNode);
+
+myTree.deleteItem(67);
+
+prettyPrint(rootNode);
