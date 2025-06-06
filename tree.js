@@ -43,7 +43,106 @@ export class Tree {
 
         }
 
+    }
 
+    deleteItem(value) {
+        if (this.root === null) {
+            return null;
+        }
+
+        let currentNode = this.root;
+        let previousNode = null;
+
+        while (currentNode !== null && currentNode.value !== value) {
+            if (currentNode.value > value) {
+                previousNode = currentNode;
+                currentNode = currentNode.left;
+
+            } else if (currentNode.value < value) {
+                previousNode = currentNode;
+                currentNode = currentNode.right;
+
+            }
+
+        }
+
+        if (currentNode === null) {
+            return null;
+        }
+
+        if (previousNode === null) {
+            if (currentNode.left === null && currentNode.right === null) {
+                this.root = null;
+                return;
+
+            } else if (currentNode.left !== null && currentNode.right === null) {
+                this.root = currentNode.left;
+                return;
+
+            } else if (currentNode.left === null && currentNode.right !== null) {
+                this.root = currentNode.right;
+                return;
+
+            } else {
+
+                return;
+            }
+
+        } else {
+            if (currentNode.left === null && currentNode.right === null) {
+                if (previousNode.value > currentNode.value) {
+                    previousNode.left = null;
+                    return;
+
+                } else if (previousNode.value < currentNode.value) {
+                    previousNode.right = null;
+                    return;
+
+                }
+
+            } else if (currentNode.left !== null && currentNode.right === null) {
+                if (previousNode.value > currentNode.value) {
+                    previousNode.left = currentNode.left;
+                    return;
+
+                } else if (previousNode.value < currentNode.value) {
+                    previousNode.right = currentNode.left;
+                    return;
+
+                }
+
+            } else if (currentNode.left === null && currentNode.right !== null) {
+                if (previousNode.value > currentNode.value) {
+                    previousNode.left = currentNode.right;
+                    return;
+
+                } else if (previousNode.value < currentNode.value) {
+                    previousNode.right = currentNode.right;
+                    return;
+
+                }
+
+            }
+
+        }
+
+        
+    }
+
+    findMinNode(node) {
+        if (node === null) {
+            return null;
+
+        }
+        
+        let currentNode = node;
+
+        while (currentNode.left !== null) {
+            currentNode = currentNode.left;
+
+        }
+
+        return currentNode;
 
     }
     
