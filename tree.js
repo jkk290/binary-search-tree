@@ -1,5 +1,8 @@
+import { buildTree } from "./buildTree.js";
+
 export class Tree {
     constructor(array) {
-        this.root = null;
+        this.root = buildTree(array);
     }
+    
 }
