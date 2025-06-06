@@ -50,7 +50,7 @@ export class Tree {
             return null;
         }
 
-        let currentNode = startingNode;
+        let currentNode = this.root;
         let previousNode = null;
 
         while (currentNode !== null && currentNode.value !== value) {
@@ -87,8 +87,25 @@ export class Tree {
                 let replacement = this.findMinNode(currentNode.right);
 
                 currentNode.value = replacement.value;
-                
-                return;
+
+                let replacementNode = currentNode.right;
+                let parentOfReplacement = currentNode;
+
+                while (replacementNode.left !== null) {
+                    parentOfReplacement = replacementNode;
+                    replacementNode = replacementNode.left;
+
+                }
+
+                if (parentOfReplacement === currentNode) {
+                    parentOfReplacement.right = replacementNode.right;
+                    return;
+
+                } else {
+                    parentOfReplacement.left = replacementNode.right;
+                    return;
+                }
+
             }
 
         } else {
@@ -130,8 +147,24 @@ export class Tree {
 
                 currentNode.value = replacement.value;
 
-                return;
+                let replacementNode = currentNode.right;
+                let parentOfReplacement = currentNode;
 
+                while (replacementNode.left !== null) {
+                    parentOfReplacement = replacementNode;
+                    replacementNode = replacementNode.left;
+
+                }
+
+                if (parentOfReplacement === currentNode) {
+                    parentOfReplacement.right = replacementNode.right;
+                    return;
+
+                } else {
+                    parentOfReplacement.left = replacementNode.right;
+                    return;
+                }
+                
             }
 
         }

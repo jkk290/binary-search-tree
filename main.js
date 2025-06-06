@@ -13,6 +13,10 @@ myTree.insert(66);
 
 prettyPrint(rootNode);
 
-myTree.deleteItem(67);
+myTree.deleteItem(8);
+myTree.deleteItem(1);
+myTree.deleteItem(5);
+myTree.deleteItem(7);
+
 
 prettyPrint(rootNode);
