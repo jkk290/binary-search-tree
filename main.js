@@ -8,3 +8,7 @@ let myTree = new Tree(testArray);
 let rootNode = myTree.root;
 
 prettyPrint(rootNode);
+
+myTree.insert(66);
+
+prettyPrint(rootNode);
