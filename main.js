@@ -35,4 +35,10 @@ myTree.inOrder((node) => {
     console.log(node.value);
 })
 
-myTree.inOrder('This should give me an error!')
+// myTree.inOrder('This should give me an error!');
+
+myTree.preOrder((node) => {
+    console.log(node.value);
+})
+
+myTree.preOrder('This should give me an error!');
