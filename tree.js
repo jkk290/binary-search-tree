@@ -390,9 +390,11 @@ export class Tree {
         }
 
         let leftHeight = this.calculateHeight(node.left);
-        let rightHeigh = this.calculateHeight(node.right);
+        let rightHeight = this.calculateHeight(node.right);
 
-        return 1 + Math.max(leftHeight, rightHeigh);
+        let currentHeight = 1 + Math.max(leftHeight, rightHeight);
+
+        return currentHeight;
 
     }
 
@@ -455,6 +457,22 @@ export class Tree {
         let rightSubtree = this.isNodeBalanced(node.right);
 
         return leftSubtree && rightSubtree;
+
+    }
+
+    rebalance() {
+        if (this.root === null) {
+            return;
+
+        }
+
+        let inOrderArray = [];
+
+        this.inOrder((node) => {
+            inOrderArray.push(node.value);
+        })
+
+        this.root = buildTree(inOrderArray)
 
     }
     

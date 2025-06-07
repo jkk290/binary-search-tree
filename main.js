@@ -63,3 +63,11 @@ myTree.insert(9482);
 myTree.insert(9932);
 console.log(myTree.isBalanced());
 prettyPrint(rootNode);
+
+myTree.rebalance();
+rootNode = myTree.root;
+
+prettyPrint(rootNode);
+console.log(myTree.isBalanced());
+
+
