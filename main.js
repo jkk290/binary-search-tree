@@ -41,4 +41,10 @@ myTree.preOrder((node) => {
     console.log(node.value);
 })
 
-myTree.preOrder('This should give me an error!');
+// myTree.preOrder('This should give me an error!');
+
+myTree.postOrder((node) => {
+    console.log(node.value);
+})
+
+myTree.postOrder('This should give me an error!');

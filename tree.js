@@ -317,5 +317,38 @@ export class Tree {
 
         }
     }
+
+    postOrder(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('A callback function is required.');
+
+        }
+
+        if (this.root === null) {
+            return;
+
+        }
+
+        this.traversePostOrder(this.root, callback);
+    }
+
+    traversePostOrder(node, callback) {
+        if (node === null) {
+            return;
+
+        }        
+        
+        if (node.left !== null) {
+            this.traversePostOrder(node.left, callback);
+
+        }        
+
+        if (node.right !== null) {
+            this.traversePostOrder(node.right, callback);
+
+        }
+
+        callback(node);
+    }
     
 }
