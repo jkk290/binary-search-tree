@@ -430,5 +430,32 @@ export class Tree {
         }
 
     }
+
+    isBalanced() {
+        return this.isNodeBalanced(this.root);
+
+    }
+
+    isNodeBalanced(node) {
+        if (node === null) {
+            return true;
+
+        }
+
+        let leftHeight = this.calculateHeight(node.left);
+        let rightHeight = this.calculateHeight(node.right);
+        let currentNodeHeight = Math.abs(leftHeight - rightHeight);
+
+        if (currentNodeHeight > 1) {
+            return false;
+
+        }
+
+        let leftSubtree = this.isNodeBalanced(node.left);
+        let rightSubtree = this.isNodeBalanced(node.right);
+
+        return leftSubtree && rightSubtree;
+
+    }
     
 }

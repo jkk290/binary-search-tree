@@ -56,3 +56,10 @@ console.log(myTree.height(66));
 console.log(myTree.depth(9));
 console.log(myTree.depth(8));
 console.log(myTree.depth(66));
+
+console.log(myTree.isBalanced());
+
+myTree.insert(9482);
+myTree.insert(9932);
+console.log(myTree.isBalanced());
+prettyPrint(rootNode);
