@@ -20,3 +20,7 @@ myTree.deleteItem(7);
 
 
 prettyPrint(rootNode);
+
+console.log(myTree.find(66));
+console.log(myTree.find(432));
+console.log(myTree.find(9));

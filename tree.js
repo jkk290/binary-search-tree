@@ -188,5 +188,35 @@ export class Tree {
         return currentNode;
 
     }
+
+    find(value) {
+        if (this.root === null) {
+            return null;
+        }
+
+        let currentNode = this.root;
+
+        while (currentNode !== null && currentNode.value !== value) {
+            if (currentNode.value < value) {
+                currentNode = currentNode.right;
+
+            } else if (currentNode.value > value) {
+                currentNode = currentNode.left;
+
+            }
+        }
+
+        if (currentNode === null) {
+            return null;
+
+        } else if (currentNode.value !== value) {
+            return null;
+        } else {
+            return currentNode;
+        }
+        
+    
+
+    }
     
 }
