@@ -395,5 +395,40 @@ export class Tree {
         return 1 + Math.max(leftHeight, rightHeigh);
 
     }
+
+    depth(value) {
+        if (this.root === null) {
+            return null;
+
+        }
+
+        let currentNode = this.root;
+        let count = 0;
+
+        while (currentNode !== null && currentNode.value !== value){
+            if (currentNode.value > value) {
+                currentNode = currentNode.left;
+                count += 1;
+
+            } else if (currentNode.value < value) {
+                currentNode = currentNode.right;
+                count += 1;
+
+            }
+
+        }
+
+        if (currentNode === null) {
+            return null;
+
+        } else if (currentNode.value === value) {
+            return count;
+
+        } else {
+            return null;
+            
+        }
+
+    }
     
 }
