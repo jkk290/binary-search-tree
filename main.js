@@ -24,3 +24,9 @@ prettyPrint(rootNode);
 console.log(myTree.find(66));
 console.log(myTree.find(432));
 console.log(myTree.find(9));
+
+myTree.levelOrder((node) => {
+    console.log(node.value);
+})
+
+myTree.levelOrder('This should give me an error!');

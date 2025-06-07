@@ -211,11 +211,42 @@ export class Tree {
 
         } else if (currentNode.value !== value) {
             return null;
+
         } else {
             return currentNode;
+
         }
         
-    
+    }
+
+    levelOrder(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('A callback function is required.');
+
+        }
+
+        if (this.root === null) {
+            return;
+
+        }
+
+        const queue = [this.root];
+
+        while (queue.length > 0) {
+            const currentNode = queue.shift();
+
+            callback(currentNode);
+
+            if (currentNode.left !== null) {
+                queue.push(currentNode.left);
+                
+            }
+
+            if (currentNode.right !== null) {
+                queue.push(currentNode.right);
+
+            }
+        }
 
     }
     
