@@ -239,13 +239,48 @@ export class Tree {
 
             if (currentNode.left !== null) {
                 queue.push(currentNode.left);
-                
+
             }
 
             if (currentNode.right !== null) {
                 queue.push(currentNode.right);
 
             }
+        }
+
+    }
+
+    inOrder(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('A callback function is required.');
+
+        }
+
+        if (this.root === null) {
+            return;
+
+        }
+
+        this.traverseInOrder(this.root, callback);        
+
+    }
+
+    traverseInOrder(node, callback) {
+        if (node === null) {
+            return;
+
+        } 
+        
+        if (node.left !== null) {
+            this.traverseInOrder(node.left, callback);
+
+        }
+
+        callback(node);
+
+        if (node.right !== null) {
+            this.traverseInOrder(node.right, callback);
+
         }
 
     }

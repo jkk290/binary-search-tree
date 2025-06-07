@@ -29,4 +29,10 @@ myTree.levelOrder((node) => {
     console.log(node.value);
 })
 
-myTree.levelOrder('This should give me an error!');
+// myTree.levelOrder('This should give me an error!');
+
+myTree.inOrder((node) => {
+    console.log(node.value);
+})
+
+myTree.inOrder('This should give me an error!')
