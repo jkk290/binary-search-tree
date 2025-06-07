@@ -350,5 +350,50 @@ export class Tree {
 
         callback(node);
     }
+
+    height(value) {
+        if (this.root === null) {
+            return null;
+
+        }
+
+        let currentNode = this.root;
+
+        while (currentNode !== null && currentNode.value !== value) {
+            if (currentNode.value > value) {
+                currentNode = currentNode.left;
+
+            } else if (currentNode.value < value) {
+                currentNode = currentNode.right;
+
+            }
+
+        }
+
+        if (currentNode === null) {
+            return null;
+
+        } else if (currentNode.value === value) {
+            return this.calculateHeight(currentNode);
+
+        } else {
+            return null;
+        }
+
+        
+    }
+
+    calculateHeight(node) {
+        if (node === null) {
+            return -1;
+
+        }
+
+        let leftHeight = this.calculateHeight(node.left);
+        let rightHeigh = this.calculateHeight(node.right);
+
+        return 1 + Math.max(leftHeight, rightHeigh);
+
+    }
     
 }

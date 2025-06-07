@@ -47,4 +47,8 @@ myTree.postOrder((node) => {
     console.log(node.value);
 })
 
-myTree.postOrder('This should give me an error!');
+// myTree.postOrder('This should give me an error!');
+
+console.log(myTree.height(9));
+console.log(myTree.height(8));
+console.log(myTree.height(66));
